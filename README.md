@@ -15,7 +15,7 @@ The back-end server is built using [node.js](https://nodejs.org) and [Express.js
 
 ## Dependencies
 
-- [express](https://www.npmjs.com/package/express)
-- [PostgreSQL 9.x](https://www.postgresql.org/)
-- [react](https://www.npmjs.com/package/react)
-- [react-dom](https://www.npmjs.com/package/react-dom)
+- [express](https://www.npmjs.com/package/express) 
+- [PostgreSQL 9.x](https://www.postgresql.org/) 
+- [react](https://www.npmjs.com/package/react) 
+- [react-dom](https://www.npmjs.com/package/react-dom) 
