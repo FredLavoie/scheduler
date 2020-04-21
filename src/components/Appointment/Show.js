@@ -2,8 +2,6 @@ import React from "react";
 
 
 export default function Show(props) {
-  console.log('props: ' , props);
-  console.log('props.name: ' , props.name);
 
   return (
     <main className="appointment__card appointment__card--show">
