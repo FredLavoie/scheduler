@@ -9,6 +9,13 @@ import useVisualMode from "hooks/useVisualMode";
 
 import "components/Appointment/styles.scss";
 
+function save(name, interviewer) {
+  const interview = {
+    student: name,
+    interviewer: interviewer
+  };
+}
+
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -29,9 +36,10 @@ export default function Appointment(props) {
         />
       )}
       {mode === CREATE && (<Form
-        interviewers={[]}
+        interviewers={props.interviewers}
         interviewer={props.interviewer}
         onCancel={() => back()}
+        onSave={save}
         />
       )}
     </article>
