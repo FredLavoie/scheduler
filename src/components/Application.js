@@ -34,8 +34,7 @@ export default function Application(props) {
 
     return axios
       .put(`/api/appointments/${id}`, {interview})
-      .then(() => {setState({...state, appointments})})
-      .catch(error => console.log(error));
+      .then(() => {setState({...state, appointments})});
   }
 
   function deleteInterview(id) {
@@ -50,8 +49,7 @@ export default function Application(props) {
 
     return axios
       .delete(`/api/appointments/${id}`, {id})
-      .then(() => {setState({...state, appointments})})
-      .catch(error => console.log(error));
+      .then(() => {setState({...state, appointments})});
   }
 
   useEffect(() => {
