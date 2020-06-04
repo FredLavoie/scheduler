@@ -50,7 +50,7 @@ export default function useApplicationData() {
 
     return axios
       .put(`/api/appointments/${id}`, {interview})
-      .then(() => {setState({...state, appointments, days})});
+      .then(() => {setState({...state, appointments})});
   }
 
   function deleteInterview(id) {
