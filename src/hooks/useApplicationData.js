@@ -85,7 +85,7 @@ export default function useApplicationData() {
       }
       dispatch({ type: SET_INTERVIEW, days, appointments })
     }
-    ws.onclose = () => console.log("ws closed");
+    return ws.close();
 
   }, [state.day, state.appointments, state.days]);
 
