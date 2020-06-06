@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Header from "components/Appointment/Header";
 import Show from "components/Appointment/Show";
@@ -30,14 +30,18 @@ export default function Appointment(props) {
 
   function save(name, interviewer) {
     transition(SAVING, true);
-    const interview = {
-      student: name,
-      interviewer: interviewer
-    };
-    props
-      .bookInterview(props.id, interview)
-      .then(() => transition(SHOW))
-      .catch(error => transition(ERROR_SAVING, true));
+    if(!name || !interviewer) {
+      transition(ERROR_SAVING, true)
+    } else {
+      const interview = {
+        student: name,
+        interviewer: interviewer
+      };
+      props
+        .bookInterview(props.id, interview)
+        .then(() => transition(SHOW))
+        .catch(error => transition(ERROR_SAVING, true));
+    }
   }
 
   function cancelInterview() {
@@ -47,6 +51,18 @@ export default function Appointment(props) {
       .then(() => transition(EMPTY))
       .catch(error => transition(ERROR_DELETING, true));
   }
+
+  useEffect(() => {
+    if (props.interview === null && mode === SHOW) {
+      transition(EMPTY);
+    }
+    if (props.interview &&
+        props.interview.student &&
+        props.interview.interviewer &&
+        mode === EMPTY) {
+      transition(SHOW);
+    }
+   }, [props.interview, transition, mode]);
 
 
   return (
@@ -67,7 +83,7 @@ export default function Appointment(props) {
         />
       )}
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
-      {mode === SHOW && (
+      {mode === SHOW && props.interview && (
         <Show
         student={props.interview.student}
         interviewer={props.interview.interviewer}
