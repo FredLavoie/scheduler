@@ -8,7 +8,7 @@ run `npm start`
 3. storybook
 run `npm run storybook`
 
-4. testing
+4. testing (Jest)
 run `npm test`
 
 5. backend server (scheduler-api)
