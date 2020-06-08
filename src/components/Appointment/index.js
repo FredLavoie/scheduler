@@ -112,9 +112,7 @@ export default function Appointment(props) {
         <Confirm
         message={"Are you sure you would like to cancel this appointment?"}
         onCancel={() => back()}
-        onConfirm={() => {
-          cancelInterview();
-        }}
+        onConfirm={() => cancelInterview()}
         />
       )}
     </article>
