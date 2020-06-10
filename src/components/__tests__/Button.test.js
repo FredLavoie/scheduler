@@ -7,31 +7,31 @@ import Button from "components/Button";
 afterEach(cleanup);
 
 describe("Botton", () => {
-  it("renders without crashing", () => {
+  it("[1] renders without crashing", () => {
     render(<Button />);
   });
 
-  it("renders its `children` prop as text", () => {
+  it("[2] renders its `children` prop as text", () => {
     const { getByText } = render(<Button>Default</Button>);
     expect(getByText("Default")).toBeInTheDocument();
   });
 
-  it("renders a default button style", () => {
+  it("[3] renders a default button style", () => {
     const { getByText } = render(<Button>Default</Button>);
     expect(getByText("Default")).toHaveClass("button");
   });
 
-  it("renders a confirm button", () => {
+  it("[4] renders a confirm button", () => {
     const { getByText } = render(<Button confirm>Confirm</Button>);
     expect(getByText("Confirm")).toHaveClass("button--confirm");
   });
 
-  it("renders a danger button", () => {
+  it("[5] renders a danger button", () => {
     const { getByText } = render(<Button danger>Danger</Button>);
     expect(getByText("Danger")).toHaveClass("button--danger");
   });
 
-  it("renders a clickable button", () => {
+  it("[6] renders a clickable button", () => {
     const handleClick = jest.fn();
     const { getByText } = render(
       <Button onClick={handleClick}>Clickable</Button>
@@ -44,7 +44,7 @@ describe("Botton", () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it("renders a disabled button", () => {
+  it("[7] renders a disabled button", () => {
     const handleClick = jest.fn();
     const { getByText } = render(
       <Button disabled onClick={handleClick}>
