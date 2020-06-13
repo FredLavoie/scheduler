@@ -59,7 +59,9 @@ export default function useApplicationData() {
         interviewers: all[2].data
       })
     })
+  },[]);
 
+  useEffect(() => {
     ws.onmessage = (event) => {
       const newInterview = JSON.parse(event.data);
       const appointment = {
@@ -86,7 +88,7 @@ export default function useApplicationData() {
       }
       dispatch({ type: SET_INTERVIEW, days, appointments })
     }
-    return ws.close();
+    return () => ws.close();
 
   }, [state.day, state.appointments, state.days]);
 

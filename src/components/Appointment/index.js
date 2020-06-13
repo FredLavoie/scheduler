@@ -29,7 +29,7 @@ export default function Appointment(props) {
   );
 
   function save(name, interviewer) {
-    transition(SAVING, true);
+    transition(SAVING);
     const interview = {
       student: name,
       interviewer: interviewer
@@ -41,7 +41,7 @@ export default function Appointment(props) {
   };
 
   function cancelInterview() {
-    transition(DELETING, true);
+    transition(DELETING);
     props
       .deleteInterview(props.id)
       .then(() => transition(EMPTY))
@@ -49,20 +49,17 @@ export default function Appointment(props) {
   }
 
   useEffect(() => {
+    if (props.interview && mode === EMPTY) {
+      transition(SHOW);
+    }
     if (props.interview === null && mode === SHOW) {
       transition(EMPTY);
-    }
-    if (props.interview &&
-        props.interview.student &&
-        props.interview.interviewer &&
-        mode === EMPTY) {
-      transition(SHOW);
     }
    }, [props.interview, transition, mode]);
 
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       {mode === SAVING && <Status message={"Saving"} />}
       {mode === DELETING && <Status message={"Deleting"} />}
