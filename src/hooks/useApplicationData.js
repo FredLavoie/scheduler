@@ -1,8 +1,7 @@
 import { useReducer, useEffect } from "react";
 import axios from "axios";
 
-// const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
-const ws = new WebSocket("ws://localhost:8001");
+const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
 const SET_DAY               = "SET_DAY";
 const SET_APPLICATION_DATA  = "SET_APPLICATION_DATA";
