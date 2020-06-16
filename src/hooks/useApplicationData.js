@@ -76,12 +76,13 @@ export default function useApplicationData() {
         ...state.days,
       ]
 
-      for(let ea of days) {
-        if(ea.name === state.day) {
-          if(appointment.interview){
-            ea.spots += 1;
+      for(let i = 0; i < days.length; i++) {
+        if(days[i].name === state.day) {
+          if(appointment.interview) {
+
+            days[i].spots += 1;
           } else {
-            ea.spots -= 1;
+            days[i].spots -= 1;
           }
         }
       }
@@ -105,9 +106,9 @@ export default function useApplicationData() {
       ...state.days,
     ]
 
-    for(let ea of days) {
-      if(ea.name === state.day) {
-        ea.spots -= 1;
+    for(let i = 0; i < days.length; i++) {
+      if(days[i].name === state.day) {
+        days[i].spots -= 1;
       }
     }
 
@@ -130,9 +131,9 @@ export default function useApplicationData() {
       ...state.days,
     ]
 
-    for(let ea of days) {
-      if(ea.name === state.day) {
-        ea.spots += 1;
+    for(let i = 0; i < days.length; i++) {
+      if(days[i].name === state.day) {
+        days[i].spots += 1;
       }
     }
 
