@@ -13,3 +13,9 @@ run `npm test`
 
 5. backend server (scheduler-api)
 run `npm start`
+
+6. backend server - test mode
+run `NODE_ENV=test npm start`
+
+7. Cypress
+run `npm run cypress`
