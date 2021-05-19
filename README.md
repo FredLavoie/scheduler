@@ -1,6 +1,6 @@
 # Scheduler
 
-Scheduler is a demo app built for the purpose of learning [React](https://reactjs.org/) using functional components and hooks. The live demo can be found [here](https://sche.netlify.app/). The backend api is hosted on Heroku and the frontend is hosted on Netlify. [CircleCI](https://circleci.com/) was implemented to run the testing suite each time changes are pushed to the master branch of the project.
+Scheduler is a demo app built for the purpose of learning [React](https://reactjs.org/) using functional components and hooks. The backend api is hosted on Heroku and the frontend is hosted on Netlify. [CircleCI](https://circleci.com/) was implemented to run the testing suite each time changes are pushed to the master branch of the project.
 
 ### Frontend
 The html content is rendered on the client side using the [ReactJS](https://reactjs.org/) framework/library. React allow the developer to create the interactive parts of the app in JavaScript and render the html needed as well as change the html elements quickly making the application dynamic.
